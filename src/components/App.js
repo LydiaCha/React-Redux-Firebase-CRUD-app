@@ -45,8 +45,6 @@ class App extends Component {
 
   // render posts from firebase
   renderPosts() {
-
-    const {text} = this.props;
     return _.map(this.props.posts, (post, key) => {
       return (
         <div key={key} className="card">
