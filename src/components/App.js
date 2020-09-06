@@ -46,27 +46,35 @@ class App extends Component {
   renderPosts() {
     return _.map(this.props.posts, (post, key) => {
       return (
-        <PostCard key={key}>
-          <Link to={`/${key}`}>
-            <h2>{post.title}</h2>
-          </Link>
-          <p>{post.body}</p>
-          {post.uid === this.props.user.uid && (
-            <div>
-            <div className="d-inline" style={{paddingRight: 10}}>
-              <button
-                className="btn btn-danger"
-                onClick={() => this.props.deletePost(key)}
-              >
-                Delete
-              </button>
+        <div key={key} class="card">
+          <div class="card-body">
+            <Link to={`/${key}`}>
+              <h5 class="card-title">{post.title}</h5>
+            </Link>
+            <p class="card-text">{post.body}</p>
+            {post.uid === this.props.user.uid && (
+              <div>
+                <div className="d-inline" style={{ paddingRight: 10 }}>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => this.props.deletePost(key)}
+                  >
+                    Delete
+                  </button>
+                </div>
+                <div className="d-inline">
+                  <a
+                    class="btn btn-primary"
+                    href={`/${key}/edit`}
+                    role="button"
+                  >
+                    Update
+                  </a>
+                </div>
               </div>
-              <div className="d-inline">
-              <a class="btn btn-primary" href={`/${key}/edit`} role="button">Update</a>
-            </div>
-            </div>
-          )}
-        </PostCard>
+            )}
+          </div>
+        </div>
       );
     });
   }
