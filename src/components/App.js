@@ -71,34 +71,44 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="col-sm-6 col-sm-offset-3">
-          <form onSubmit={this.onHandleSubmit}>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                name="title"
-                placeholder="title"
-                onChange={this.onInputChange}
-                required
-              />
+      <div className="container">
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title text-center">Create a new article</h3>
+            <div className="panel-body">
+              <form onSubmit={this.onHandleSubmit}>
+                <div className="form-group">
+                  <input
+                    className="form-control form-control-lg"
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    onChange={this.onInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    type="text"
+                    name="body"
+                    placeholder="Body"
+                    cols="80"
+                    rows="20"
+                    onChange={this.onInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <button className="btn btn-success">Save</button>
+                </div>
+              </form>
+              {this.renderPosts()}
             </div>
-            <div className="form-group">
-              <textarea
-                className="form-control"
-                type="text"
-                name="body"
-                placeholder="body"
-                onChange={this.onInputChange}
-                required
-              />
-            </div>
-            <div>
-              <button className="btn btn-primary">Save</button>
-            </div>
-          </form>
-          {this.renderPosts()}
+          </div>
         </div>
       </div>
     );
