@@ -11,8 +11,8 @@ class App extends Component {
     super(props);
     //state
     this.state = {
-      title: '',
-      body: '',
+      title: "",
+      body: "",
     };
     //bind
     this.onInputChange = this.onInputChange.bind(this);
@@ -33,12 +33,12 @@ class App extends Component {
     const post = {
       title: this.state.title,
       body: this.state.body,
-      uid: this.props.user.uid
+      uid: this.props.user.uid,
     };
     this.props.savePost(post);
     this.setState({
-      title: '',
-      body: '',
+      title: "",
+      body: "",
     });
   }
 

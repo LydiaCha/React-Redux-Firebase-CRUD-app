@@ -34,7 +34,7 @@ ReactDOM.render(
           <div>
             <Switch>
               <Route path="/login" component={Login} exact={true} />
-              <Redirect from="/logout" to="/login"/>
+              <Redirect from="/logout" to="/login" />
               <Auth>
                 <Navbar />
                 <Route path="/:id/edit" component={PostEdit} exact={true} />

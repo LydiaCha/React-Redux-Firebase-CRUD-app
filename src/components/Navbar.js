@@ -29,27 +29,29 @@ class Navbar extends Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/addArticle">
+              <a className="nav-link" href="/placeholder">
                 Create article
               </a>
             </li>
             <div>
-            {
-              this.props.user == null ? (
+              {this.props.user == null ? (
                 <li className="nav-item">
-              <a className="nav-link" href="/login">
-                Login
-              </a>
-            </li>
+                  <a className="nav-link" href="/login">
+                    Login
+                  </a>
+                </li>
               ) : (
                 <li className="nav-item">
-              <a className="nav-link" href="/logout" onClick={() => this.props.logout()}>
-                Logout
-              </a>
-            </li>
-              )
-          }
-          </div>
+                  <a
+                    className="nav-link"
+                    href="/logout"
+                    onClick={() => this.props.logout()}
+                  >
+                    Logout
+                  </a>
+                </li>
+              )}
+            </div>
           </ul>
         </div>
       </nav>
@@ -57,10 +59,10 @@ class Navbar extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps){
-    return{
-        user: state.user
-    }
+function mapStateToProps(state, ownProps) {
+  return {
+    user: state.user,
+  };
 }
 
-export default connect(mapStateToProps, {getUser, logout})(Navbar);
+export default connect(mapStateToProps, { getUser, logout })(Navbar);

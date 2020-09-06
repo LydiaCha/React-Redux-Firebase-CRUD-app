@@ -2,7 +2,7 @@ import { GET_POSTS, POSTS_STATUS } from "../actionTypes";
 import { database } from "../firebase";
 
 export function getPosts() {
-  return dispatch => {
+  return (dispatch) => {
     // as soon as this function fires, show loading to be true
     dispatch({
       type: POSTS_STATUS,
@@ -33,13 +33,13 @@ export function getPosts() {
 }
 
 export function savePost(post) {
-  return dispatch => database.push(post);
+  return (dispatch) => database.push(post);
 }
 
 export function editPost(id, post) {
-  return dispatch => database.child(id).update(post);
+  return (dispatch) => database.child(id).update(post);
 }
 
 export function deletePost(id) {
-  return dispatch => database.child(id).remove();
+  return (dispatch) => database.child(id).remove();
 }

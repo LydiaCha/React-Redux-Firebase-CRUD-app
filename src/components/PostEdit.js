@@ -35,7 +35,7 @@ class PostEdit extends Component {
       title: "",
       body: "",
     });
-    this.props.history.push('/');
+    this.props.history.push("/");
   }
 
   render() {
