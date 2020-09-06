@@ -3,7 +3,6 @@ import _ from "lodash";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getPosts, savePost, deletePost } from "../actions/postsAction";
-import PostCard from "./PostCard";
 import { getUser } from "../actions/userAction";
 
 class App extends Component {
@@ -46,12 +45,12 @@ class App extends Component {
   renderPosts() {
     return _.map(this.props.posts, (post, key) => {
       return (
-        <div key={key} class="card">
-          <div class="card-body">
+        <div key={key} className="card">
+          <div className="card-body">
             <Link to={`/${key}`}>
-              <h5 class="card-title">{post.title}</h5>
+              <h5 className="card-title" style={{ textDecoration: 'none', color: "black" }}> {post.title} </h5>
             </Link>
-            <p class="card-text">{post.body}</p>
+            <p className="card-text">{post.body}</p>
             {post.uid === this.props.user.uid && (
               <div>
                 <div className="d-inline" style={{ paddingRight: 10 }}>
@@ -64,7 +63,7 @@ class App extends Component {
                 </div>
                 <div className="d-inline">
                   <a
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     href={`/${key}/edit`}
                     role="button"
                   >
