@@ -45,6 +45,8 @@ class App extends Component {
   renderPosts() {
     return _.map(this.props.posts, (post, key) => {
       return (
+        <div>
+        <br></br>
         <div key={key} className="card">
           <div className="card-body">
             <Link to={`/${key}`}>
@@ -76,6 +78,7 @@ class App extends Component {
               </div>
             )}
           </div>
+        </div>
         </div>
       );
     });
