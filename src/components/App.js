@@ -67,7 +67,7 @@ class App extends Component {
                     href={`/${key}/edit`}
                     role="button"
                   >
-                    Update
+                    Edit
                   </a>
                 </div>
               </div>

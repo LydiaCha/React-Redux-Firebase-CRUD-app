@@ -40,35 +40,46 @@ class PostEdit extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="col-sm-6 col-sm-offset-3">
-          <form onSubmit={this.onHandleSubmit}>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                name="title"
-                placeholder="title"
-                onChange={this.onInputChange}
-                value={this.state.title}
-                required
-              />
+      <div className="container">
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title text-center">Edit post</h3>
+            <br></br>
+            <div className="panel-body">
+              <form onSubmit={this.onHandleSubmit}>
+                <div className="form-group">
+                  <input
+                    className="form-control form-control-lg"
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    onChange={this.onInputChange}
+                    value={this.state.title}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    type="text"
+                    name="body"
+                    placeholder="Body"
+                    cols="80"
+                    rows="20"
+                    onChange={this.onInputChange}
+                    value={this.state.body}
+                    required
+                  />
+                </div>
+                <div>
+                  <button className="btn btn-success">Update</button>
+                </div>
+              </form>
             </div>
-            <div className="form-group">
-              <textarea
-                className="form-control"
-                type="text"
-                name="body"
-                placeholder="body"
-                onChange={this.onInputChange}
-                value={this.state.body}
-                required
-              />
-            </div>
-            <div>
-              <button className="btn btn-primary">Save</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     );
