@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { getPosts, savePost, deletePost } from "../actions/postsAction";
 import { getUser } from "../actions/userAction";
 
-const MAX_LENGHT = 100;
-
 class App extends Component {
   constructor(props) {
     super(props);
