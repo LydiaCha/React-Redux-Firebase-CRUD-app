@@ -53,15 +53,17 @@ class App extends Component {
           <p>{post.body}</p>
           {post.uid === this.props.user.uid && (
             <div>
+            <div className="d-inline" style={{paddingRight: 10}}>
               <button
-                className="btn btn-danger btn-xs"
+                className="btn btn-danger"
                 onClick={() => this.props.deletePost(key)}
               >
                 Delete
               </button>
-              <button className="btn btn-info btn-xs pull-right">
-                <Link to={`/${key}/edit`}>Update</Link>
-              </button>
+              </div>
+              <div className="d-inline">
+              <a class="btn btn-primary" href={`/${key}/edit`} role="button">Update</a>
+            </div>
             </div>
           )}
         </PostCard>
@@ -77,7 +79,8 @@ class App extends Component {
         <br></br>
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title text-center">Create a new article</h3>
+            <h3 className="panel-title text-center">Create a new post</h3>
+            <br></br>
             <div className="panel-body">
               <form onSubmit={this.onHandleSubmit}>
                 <div className="form-group">
