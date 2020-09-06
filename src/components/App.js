@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { getPosts, savePost, deletePost } from "../actions/postsAction";
 import { getUser } from "../actions/userAction";
 
+const MAX_LENGHT = 100;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,13 +38,15 @@ class App extends Component {
     };
     this.props.savePost(post);
     this.setState({
-      title: "",
-      body: "",
+      title: '',
+      body: '',
     });
   }
 
   // render posts from firebase
   renderPosts() {
+
+    const {text} = this.props;
     return _.map(this.props.posts, (post, key) => {
       return (
         <div key={key} className="card">
@@ -50,7 +54,10 @@ class App extends Component {
             <Link to={`/${key}`}>
               <h5 className="card-title" style={{ textDecoration: 'none', color: "black" }}> {post.title} </h5>
             </Link>
+            <div style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
             <p className="card-text">{post.body}</p>
+            </div>
+            <br></br>
             {post.uid === this.props.user.uid && (
               <div>
                 <div className="d-inline" style={{ paddingRight: 10 }}>
