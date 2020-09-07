@@ -3,7 +3,6 @@ import _ from "lodash";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getPosts, savePost, deletePost } from "../actions/postsAction";
-import PostCard from "./PostCard";
 import { getUser } from "../actions/userAction";
 
 class App extends Component {
@@ -37,8 +36,8 @@ class App extends Component {
     };
     this.props.savePost(post);
     this.setState({
-      title: "",
-      body: "",
+      title: '',
+      body: '',
     });
   }
 
@@ -46,59 +45,86 @@ class App extends Component {
   renderPosts() {
     return _.map(this.props.posts, (post, key) => {
       return (
-        <PostCard key={key}>
-          <Link to={`/${key}`}>
-            <h2>{post.title}</h2>
-          </Link>
-          <p>{post.body}</p>
-          {post.uid === this.props.user.uid && (
-            <div>
-              <button
-                className="btn btn-danger btn-xs"
-                onClick={() => this.props.deletePost(key)}
-              >
-                Delete
-              </button>
-              <button className="btn btn-info btn-xs pull-right">
-                <Link to={`/${key}/edit`}>Update</Link>
-              </button>
+        <div>
+        <br></br>
+        <div key={key} className="card">
+          <div className="card-body">
+            <Link to={`/${key}`}>
+              <h5 className="card-title" style={{ textDecoration: 'none', color: "black" }}> {post.title} </h5>
+            </Link>
+            <div style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+            <p className="card-text">{post.body}</p>
             </div>
-          )}
-        </PostCard>
+            <br></br>
+            {post.uid === this.props.user.uid && (
+              <div>
+                <div className="d-inline" style={{ paddingRight: 10 }}>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => this.props.deletePost(key)}
+                  >
+                    Delete
+                  </button>
+                </div>
+                <div className="d-inline">
+                  <a
+                    className="btn btn-primary"
+                    href={`/${key}/edit`}
+                    role="button"
+                  >
+                    Edit
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        </div>
       );
     });
   }
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="col-sm-6 col-sm-offset-3">
-          <form onSubmit={this.onHandleSubmit}>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                name="title"
-                placeholder="title"
-                onChange={this.onInputChange}
-                required
-              />
+      <div className="container">
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title text-center">Create a new post</h3>
+            <br></br>
+            <div className="panel-body">
+              <form onSubmit={this.onHandleSubmit}>
+                <div className="form-group">
+                  <input
+                    className="form-control form-control-lg"
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    onChange={this.onInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    type="text"
+                    name="body"
+                    placeholder="Body"
+                    cols="80"
+                    rows="20"
+                    onChange={this.onInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <button className="btn btn-success">Save</button>
+                </div>
+              </form>
+              {this.renderPosts()}
             </div>
-            <div className="form-group">
-              <textarea
-                className="form-control"
-                type="text"
-                name="body"
-                placeholder="body"
-                onChange={this.onInputChange}
-                required
-              />
-            </div>
-            <div>
-              <button className="btn btn-primary">Save</button>
-            </div>
-          </form>
-          {this.renderPosts()}
+          </div>
         </div>
       </div>
     );
