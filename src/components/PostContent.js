@@ -6,13 +6,21 @@ class PostContent extends Component {
   render() {
     const { post } = this.props;
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-6 col-sm-offset-3">
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
-            <Link to="/"> &#171; Back</Link>
+      <div className="container">
+      <br></br><br></br><br></br>
+      <h3 className="panel-title text-center">View post</h3>
+      <br></br>
+        <div class="card">
+          <h5 class="card-header">{post.title}</h5>
+          <div class="card-body">
+            <p class="card-text">{post.body}</p>
           </div>
+        </div>
+        <div>
+        <br></br>
+          <a href="/" class="btn btn-primary">
+            &#171; Back
+          </a>
         </div>
       </div>
     );
