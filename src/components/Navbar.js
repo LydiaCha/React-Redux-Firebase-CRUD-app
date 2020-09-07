@@ -29,7 +29,7 @@ class Navbar extends Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/placeholder">
+              <a className="nav-link" href="/create">
                 Create article
               </a>
             </li>

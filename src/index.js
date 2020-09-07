@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
+import PostCreate from "./components/PostCreate";
 
 // create redux store -> reducers -> actions - actionType | applyMiddleware() make calls from actions
 
@@ -39,6 +40,7 @@ ReactDOM.render(
                 <Navbar />
                 <Route path="/:id/edit" component={PostEdit} exact={true} />
                 <Route path="/:id" component={PostContent} exact={true} />
+                <Route path="/create" component={PostCreate} exact={true} />
                 <Route path="/" component={App} exact={true} />
               </Auth>
             </Switch>
